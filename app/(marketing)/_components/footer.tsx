@@ -1,4 +1,3 @@
-import { Ghost } from "lucide-react";
 import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
 
