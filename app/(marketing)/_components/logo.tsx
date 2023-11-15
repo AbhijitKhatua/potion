@@ -15,7 +15,14 @@ export const Logo = () => {
             src="/potion.svg"
             height={40}
             width={40}
-            className="object-contain"
+            className="object-contain dark:hidden"
+            alt="logo"
+            />
+            <Image
+            src="/light-logo.svg"
+            height={40}
+            width={40}
+            className="object-contain hidden dark:block"
             alt="logo"
             />
             <p className={cn("font-bold", font.className)}>
