@@ -90,7 +90,7 @@ export const Navigation = () => {
       <aside
       ref={sidebarRef}
       className={cn (
-        "group/sidebar bg-secondary h-full overflow-y-auto relative flex w-60 flex-col z-[99999]", isResetting && "transition ease-in-out duration-300", isMobile && "w-0"
+        "group/sidebar bg-secondary h-full overflow-y-auto relative flex w-60 flex-col z-[99999]", isResetting && "transition-all ease-in-out duration-300", isMobile && "w-0"
         )}>
         <div
           onClick={collapse}
