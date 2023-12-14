@@ -29,7 +29,7 @@ export const DocumentList = ({
        setExpanded(prevExpanded => ({
         ...prevExpanded,
         [documentId]: !prevExpanded[documentId]
-       }));
+       }))
     };
 
     const documents = useQuery(api.documents.getSidebar, {
@@ -37,7 +37,7 @@ export const DocumentList = ({
     });
 
     const onRedirect = (documentId: string) => {
-        router.push(`/documents/${documentId}`);
+        router.push(`/documents/${documentId}`)
     };
 
     if (documents === undefined) {
@@ -48,7 +48,7 @@ export const DocumentList = ({
             <Item.Skeleton level={level} />
             <Item.Skeleton level={level} />
             </>
-        )};
+        )}
         </>
     };
 
@@ -84,5 +84,5 @@ export const DocumentList = ({
             </div>
            ))}
         </>
-    );
-};
+    )
+}
