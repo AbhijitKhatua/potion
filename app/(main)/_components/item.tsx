@@ -9,7 +9,6 @@ import { ChevronDown, ChevronRight, LucideIcon, Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-
 interface ItemProps {
   id?: Id<"documents">;
   documentIcon?: string;
@@ -37,7 +36,7 @@ export const Item = ({
 }: ItemProps) => {
   const create = useMutation(api.documents.create);
   const router = useRouter();
-  
+
   const handleExpand = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -45,24 +44,23 @@ export const Item = ({
     onExpand?.();
   };
 
-  const onCreate = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  const onCreate = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.stopPropagation();
     if (!id) return;
-    const promise = create ({ title: "Untitled", parentDocument: id })
-    .then((documentId)=> {
-      if (!expanded) {
-        onExpand?.();
+    const promise = create({ title: "Untitled", parentDocument: id }).then(
+      (documentId) => {
+        if (!expanded) {
+          onExpand?.();
+        }
+        // router.push (`/documents/${documentId}`);
       }
-      // router.push (`/documents/${documentId}`);
-    })
+    );
     toast.promise(promise, {
       loading: "Creating a new note...",
       success: "Note created successfully",
-      error: "Failed to create a new note."
-    })
-  }
+      error: "Failed to create a new note.",
+    });
+  };
 
   const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
@@ -101,9 +99,10 @@ export const Item = ({
       {!!id && (
         <div className="ml-auto flex items-center gap-x-2">
           <div
-          onClick={onCreate} 
-          role="button"
-          className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600">
+            onClick={onCreate}
+            role="button"
+            className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
+          >
             <Plus className="h-4 w-4 text-muted-foreground" />
           </div>
         </div>
