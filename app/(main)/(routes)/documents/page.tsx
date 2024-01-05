@@ -19,9 +19,9 @@ const DocumentsPage = () => {
     toast.promise(promise, {
       loading: "Crating a new note...",
       success: "New note created",
-      error: "Failed to create a note"
+      error: "Failed to create a note",
     });
-  }
+  };
 
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-4">
@@ -39,7 +39,9 @@ const DocumentsPage = () => {
         alt="worskpace"
         className="hidden dark:block"
       />
-      <h2 className="text-lg font-medium">Welcome to {user?.firstName}&apos;s Potion</h2>
+      <h2 className="text-lg font-medium">
+        Welcome to {user?.firstName}&apos;s Potion
+      </h2>
       <Button onClick={onCreate}>
         <PlusCircle className="h-4 w-4 mr-2" />
         Create a note
