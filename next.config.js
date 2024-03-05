@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    images: {
+        remotePatterns: [{
+            hostname: "files.edgestore.dev"
+        }]
+    }
+}
 
 module.exports = nextConfig
