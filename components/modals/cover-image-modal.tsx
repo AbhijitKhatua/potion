@@ -31,8 +31,11 @@ export const CoverImageModal = () => {
       setIsSubmitting(true);
       setFile(file);
 
-      const res = await edgestore.publicFiles.upload({
-        file
+       const res = await edgestore.publicFiles.upload({
+        file,
+        options: {
+          replaceTargetUrl: coverImage.url,
+        }
       })
 
       await update({
@@ -50,7 +53,7 @@ export const CoverImageModal = () => {
         <DialogHeader>
           <h2 className="text-center text-lg font-semibold">Cover Image</h2>
         </DialogHeader>
-        <SingleImageDropzone className="w-full outline-none" disabled={isSubmitting} value={file} onChange={onChange} width={0} height={0} />
+        <SingleImageDropzone className="w-full outline-none" disabled={isSubmitting} value={file} onChange={onChange} />
       </DialogContent>
     </Dialog>
   );
