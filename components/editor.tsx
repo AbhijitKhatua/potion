@@ -5,6 +5,8 @@ import { BlockNoteView, useCreateBlockNote } from "@blocknote/react";
 import "@blocknote/react/style.css";
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
+import { useEdgeStore } from "@/lib/edgestore";
+
 
 interface EditorProps {
   onChange: (value: string) => void;
@@ -31,6 +33,7 @@ async function loadFromStorage() {
 
 export const Editor = ({ onChange, editable }: EditorProps) => {
   const { resolvedTheme } = useTheme();
+  const {edgestore} = useEdgeStore();
 
   const [initialContent, setInitialContent] = useState<
     PartialBlock[] | undefined | "loading"
